@@ -1,0 +1,72 @@
+{% extends 'base.html' %}   
+
+{% load staticfiles %}
+
+{% block title %}{{ store }}{% endblock %}
+
+{% block body_block %}
+<div class ="content">
+<div class="container_12">
+<br><br><br>
+{% if item %} 
+<h2 class="center">
+
+<div class = "span" >{{ item }}</div>
+
+<div class="grid_5">
+<h3> Address </h3>
+    <div class="price text1"> {{ local }} </div>
+    <br>
+    <br>
+<div id="googleMap" style= "width:500px;height:400px;">
+<script>
+function myMap() {
+//var pos = {lat: lat, lon: lon};
+    var mapProp= {
+        center:new google.maps.LatLng({{local.latitude}},{{local.longitude}}),
+        zoom:15,
+    };
+    var map= new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    // zoom:15,
+    // center: pos
+    var trafficLayer = new google.maps.TrafficLayer();
+        
+    trafficLayer.setMap(map);
+    var marker = new google.maps.Marker({
+       position: new google.maps.LatLng({{local.latitude}},{{local.longitude}}),
+        map: map
+    });
+    marker.setMap(map);
+
+} </script>
+
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWR-kbwR8pQrvyZ3zsUWbm30uV34Gk69U&callback=myMap"></script>
+
+</div></div></h2>
+
+<div class="grid_6 prefix_1">
+{% if item.regularprice != None %}
+    <h3 class = "center"> GAS PRICE </h3>
+    <div class = "center">
+    <div class= "price text1">Regular Price ___________: $ {{ item.regularprice }} </div>
+    <br/><br/>
+    <div class= "price text1">Medium Price____________: $ {{ item.midprice }}  </div>
+    <br/><br/>
+    <div class= "price text1">Premium Price___________: $ {{ item.premiumprice }} </div>
+    <br/><br/>
+{% endif %}
+    </div></h4></div></div>
+    <br><br>
+    <h2 class="center"> Special Offer </h2>
+        {%for i in item.special%}
+        <br><br>
+        <h4 class="center"> {{ i }}</h4>
+        <br><br>
+{% endfor %}
+
+{% else %}
+    The {{ category_name }} category does not exist !
+{% endif %}
+    </div></div>
+{% endblock %}

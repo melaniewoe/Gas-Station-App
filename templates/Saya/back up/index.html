@@ -1,0 +1,75 @@
+﻿{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %} Home Page {% endblock %}
+
+{% block body_block %}
+
+
+        
+
+      <!--end menu-->
+      <img src="/static/images/cake.png" width="350" height="256" alt="" class="cake">
+      <!--end header-->
+    </header>
+  </div>
+</div>
+<!--start intro-->
+<div class="container">
+  <div class="row">
+    <section id="intro" class="onecol">
+      <hgroup>
+        <h1>CAKES AND COOKIES SHOP</h1>
+        <h2>I made html5 patisserie template with 1140 css grid great for making a responsive design that is optimized to work on any device: iphone, ipad, small tablet, small phone. </h2>
+      </hgroup>
+      <a href="#" class="button1">View our gallery of sweets</a> </section>
+  </div>
+</div>
+<!--end intro-->
+<div class="container">
+  <div class="row">
+    <div class="holder_content1">
+      <section class="group4">
+        <h3>Gas Station List</h3>
+        <article>
+          <h4> Welcome to Saya <span>Saya is a local family own business with over 20 years of experience in petroleum industry. </span></h4>
+        </article>
+      </section>
+    </div>
+    <!--end holder-->
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    {% if store %}
+    {% for s in store %}
+
+    <div class="fourcol">
+      <section class="group1">
+        <h5> {{ s }} </h5>
+      {% if pages %}
+        {% for page1 in pages %}
+          {% if s == page1.category%}
+            <li>
+            <h3>{{ page1.name }}</h3>
+            <h4> {{ page1.address }} </h4>
+            </li>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+
+        <a class="photo_hover3" href="#"><img src="/static/images/gas.jpg" width="215" height="137" alt=""></a> <a href="#"><span class="button">Read more</span></a> </section>
+        </div>
+        </div>
+    {% endfor %}
+  {% endif %}
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

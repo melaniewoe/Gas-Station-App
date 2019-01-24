@@ -1,0 +1,108 @@
+{ {% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %} Home Page {% endblock %}
+
+{% block body_block %}
+
+<!--==============================Content=================================-->
+
+    <div class="content"><div class="ic">More Website February 10, 2014!</div>
+      <div class="container_12">
+        <div class="grid_5">
+          <h3>CONTACT INFO</h3>
+          <div class="map">
+            <p>If you have any questions, please feel free to contact us or leave a message on the right descriptionc. If you need direction, follow the following map:</p>
+            <div class="clear"></div>
+            <figure class="">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100159.88069034235!2d-105.02749784117908!3d39.78001257479902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8f287a84edafd3ec!2sCU+Denver+College+of+Engineering+and+Applied+Science!5e0!3m2!1sen!2sus!4v1493766165952" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+            </figure>
+
+            <address>
+              <dl>
+                <dt>The Denver Gas Station Inc. <br>
+                  1200 Larimer St #2605,<br>
+                  Denver, CO 80204.
+                </dt>
+                <dd><span>Telephone:</span>+1(303) 556-2870</dd>
+                <dd><span>FAX:</span>+1 (303) 3315-2550</dd>
+                <dd>E-mail: <a href="#" class="col1">webAPI-master@mail.org</a></dd>
+              </dl>
+            </address>
+          </div>
+        </div>
+        <div class="grid_6 prefix_1">
+        
+
+
+    
+          <h3>GET IN TOUCH</h3>
+
+
+          <!DOCTYPE html>
+<html>
+  <head lang="en">
+  <meta charset="UTF-8">
+  <script language="JavaScript">
+    function showInput() {
+        document.getElementById('display_name').innerHTML = 
+                    document.getElementById("name").value;
+                    
+        document.getElementById('display_email').innerHTML = 
+                    document.getElementById("email").value;
+            
+        document.getElementById('display_state').innerHTML = 
+                    document.getElementById("state").value;
+                    
+        document.getElementById('display_message').innerHTML = 
+                    document.getElementById("message").value;
+                                              
+    }
+  </script>
+
+  </head>
+<body>
+  <form >
+            
+  
+    <label><b>Name:  </b></label><br>
+      <input type="text" name="message" id="name" placeholder = "Full Name">
+      <span class="empty-message">*This field is required.</span>
+      <br>
+      <label><b>Email:  </b></label><br>
+      <input type="text" name="message" id="email" placeholder = "email@example.com">
+      <span class="empty-message">*This field is required.</span>
+      <br>
+    <label><b>State:  </b></label><br>
+      <input type="text" name="message" id="state" placeholder = "State">
+      <span class="empty-message">*This field is required.</span>
+      <br>
+    <label><b>Message:  </b></label><br>
+      <textarea type="text" name="message" id="message" placeholder = "Message...."></textarea>
+      
+      <span class="empty-message" >*This field is required.</span>
+      <br><br>
+    <input type='reset' value='Reset' name='reset'>
+  </form>
+  <br><br>
+  <br><br>
+  <input type="submit" value="Submit" onclick="showInput();"><br/>
+  <label> </label>
+  <p> Your Input: </p>
+  <p><span id='display_name'></span></p>
+  <p><span id='display_email'></span></p>
+  <p><span id='display_state'></span></p>
+  <p><span id='display_message'></span></p>
+</body>
+</html>
+
+        </div>
+      </div>
+    </div>
+
+
+
+  
+{% endblock %}

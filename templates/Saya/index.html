@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %} Home Page {% endblock %}
+
+{% block body_block %}
+<!--==============================Content=================================-->
+<div class="content"><div class="ic">WEB API 2017 Melanie - Dai - Bhuwan - Narayan - Nguyen</div>
+
+<!--=============================Display CSS===============================-->
+<style>
+/* price displays */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600);
+html {
+  background: rgb(246, 248, 248);
+}
+body {
+  padding: 40px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;  
+  margin-bottom: 30px;
+}
+.promos {
+  width: 800px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.promo {
+  width: 250px;
+  background: #0F1012; 
+  color: #f9f9f9;
+  float: left;
+}
+.deal {
+  padding: 10px 0 0 0;
+}
+.deal span {
+  display: block;
+  text-align: center;
+}
+.deal span:first-of-type {
+  font-size: 23px;  
+}
+.deal span:last-of-type {
+  font-size: 13px;
+}
+.promo .price {
+  display: block;
+  width: 250px;  
+  background: #292b2e;
+  margin: 15px 0 10px 0;
+  text-align: center;
+  font-size: 23px;
+  padding: 17px 0 17px 0;
+}
+
+</style>
+<br><br>
+{% if user.is_authenticated %}
+  <h2>Hey !!! Hello {{ user.username }}!</h2>
+  {% else %}
+  <h3>Hey Stranger!  What are you waiting for ...... LOG in already</h3>
+  <h4><a href= "/Foodie/login" >Click here to Login</a></h4>
+  {% endif %}
+
+<!--============================ price display ===========================-->
+<div class="content"><div class="ic">Build by Melanie Woe</div>
+<br>
+<h3> <div class=center> Date: {{ date }} </h3>
+<div class="promos">  
+	<div class="promo">
+		<div class="deal">
+    		<span>Regular</span>
+    		<span>Average Price</span>
+  		</div>
+  		<span class="price">${{average_reg_price}}</span>
+	</div>
+<div class="promo scale">
+  	<div class="deal">
+    	<span>Mid</span>
+    	<span>Average Price</span>
+  	</div>
+  	<span class="price">${{average_mid_price}}</span>
+	</div>
+<div class="promo">
+  	<div class="deal">
+    	<span>Premium</span>
+    	<span>Average Price</span>
+  	</div>
+  	<span class="price">${{average_prem_price}}</span>
+	</div>
+</div>
+</div>
+
+
+<!--==============================Content=================================-->
+<br>
+	{%if store %}
+		{%if pages %}
+			{% for name in store%}
+			<br><br><br><br>
+			<div class="container_12">
+			<div class="banner">
+			<h2> {{name}}</h2>
+			<br><br><br><br>
+				{%for item in pages %}
+					{% if item.category == name %}
+						<div class="grid_4">
+							<div class="banner">
+								<img src="/static/images/gas1.jpg" alt="">
+								<div class="label">
+									<div class="title">{{item.name }}</div>
+									<div class="price">{{item.address}}</div>
+									<a href= "/Foodie/page/{{ item.slugP }}" >LEARN MORE</a>
+								</div>
+							</div>
+							<br>
+						</div>
+					{%endif %}
+				{%endfor%}
+			</div>
+			</div>	
+				
+			{%endfor%}
+			<br><br>
+		{%endif %}
+	{%endif %}
+						
+				
+
+{% endblock %}

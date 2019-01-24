@@ -1,0 +1,48 @@
+{% extends 'base.html' %}	
+
+{% load staticfiles %}
+
+{% block title %}{{ store }}{% endblock %}
+
+{% block body_block %}
+
+
+<!--==============================Content=================================-->
+<div class="content"><div class="ic">Build by Melanie Woe</div>
+<div class="container_12">
+	<div class="grid_8">
+		<h3>Special offers</h3>
+		{% if pages %}
+			{% for item in pages%}
+				{% if item.feature == True %}
+					<div class="block2">
+						<br><br><br>
+						<img src="/{{item.image}}" alt="" height="200" width="300" class="img_inner fleft">
+						<div class="extra_wrapper">
+							<div class="text1 col1"><a href="https://www.google.com/maps/place/{{item.address}}">{{item.name}}</a></div>
+							<p>{{item.address}}</p>
+							<p>{{item.des}}</p>
+							<h1>Specials:</h1>
+							{%for i in item.special%}
+							<ul>
+								<li>• {{i}}</li>
+							</ul>
+							{%endfor%}
+						</div>
+					</div>
+				{%endif%}
+			{%endfor%}
+		{% endif %}
+
+	</div>
+
+
+	<div class="grid_3 prefix_1">
+		<h5>your current location</h5>
+		<a href="https://www.google.com/maps/place/" class="link1">VIEW</a> 
+	</div>
+</div>
+</div>
+
+{% endblock %}
+
