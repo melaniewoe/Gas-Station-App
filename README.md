@@ -5,7 +5,7 @@ This is a final project for Web Api class. The main functions of the project is 
 
 Technology used:
 - Python / Django
-- HTML / CSS
+- HTML / CSS / JavaScript
 - MongoDB
 - Swagger
 - Apigee
